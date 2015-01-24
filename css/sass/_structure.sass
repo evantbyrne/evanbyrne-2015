@@ -1,0 +1,132 @@
+body
+	background: $white
+
+article
+	margin: $font-line auto ($font-line * 2) auto
+	max-width: $width-container
+	padding: 0 $font-line
+	z-index: 1
+
+	@media all and (min-width: $width-full)
+		padding: 0
+
+h2
+	font-family: $font-family-header
+	font-size: $font-size-h2
+	font-weight: bold
+
+	a
+		color: $black
+
+p, time
+	display: block
+	margin-top: ($font-line / 2)
+
+a
+	color: $blue-dark
+	text-decoration: none
+
+	&:hover
+		text-decoration: underline
+
+header
+	background: $grey-light
+	display: block
+	height: $size-header
+
+	.container
+		margin: auto
+		max-width: $width-container
+		padding: 0 $font-line
+		position: relative
+
+		@media all and (min-width: $width-full)
+			padding: 0
+
+	h1
+		display: block
+		font-family: $font-family-header
+		font-size: $font-size-h1
+		font-weight: bold
+		line-height: $size-header
+
+		> a
+			color: $black
+
+			&:before
+				@include fa-icon
+				content: $fa-var-bars
+				padding-right: $pad
+				transition: color 0.25s
+
+			&:hover
+				text-decoration: none
+
+				&:before
+					color: $blue-dark
+
+	&.banner
+		background: $white url('banner.png')
+		background-position: center $size-header
+		background-repeat: no-repeat
+		background-size: cover
+		height: (300px + $size-header)
+
+	nav
+		display: none
+
+		a
+			background: $black
+			display: block
+			color: $white
+			font-family: $font-family-header
+			font-size: $font-size-h1
+			font-weight: bold
+			line-height: $size-header
+
+			&:before
+				@include fa-icon
+				content: $fa-var-bars
+				padding-right: $pad
+				color: $black
+
+		@media all and (min-width: $width-full)
+			position: absolute
+			top: $size-header
+			z-index: 3
+
+	body.shaded &
+		background-color: $black
+		height: auto
+
+		.container
+			background: $black
+
+		h1 > a
+			color: $blue-dark
+
+			&:before
+				content: $fa-var-times
+
+		nav
+			display: block
+
+@media all and (min-width: $width-full)
+	body.shaded
+		overflow: hidden
+
+		&:after
+			background: $black
+			content: ' '
+			display: block
+			position: absolute
+			height: 100%
+			top: $size-header
+			width: 100%
+			z-index: 2
+
+footer
+	display: block
+	font-size: $font-size-h2
+	margin: ($font-line * 2) 0
+	text-align: center
