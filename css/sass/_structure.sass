@@ -44,9 +44,6 @@ a
 			list-style-type: none
 			margin-top: $font-line
 
-			&:nth-child(odd)
-				padding-right: $pad
-
 			h3
 				&:before
 					@include fa-icon
@@ -73,6 +70,12 @@ a
 			@media all and (min-width: $width-full)
 				float: left
 				width: 50%
+
+				&:nth-child(even)
+					padding-left: ($pad / 2)
+
+				&:nth-child(odd)
+					padding-right: ($pad / 2)
 
 .container
 	margin: auto
