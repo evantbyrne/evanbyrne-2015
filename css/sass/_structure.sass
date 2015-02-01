@@ -29,19 +29,19 @@ a
 	&:hover
 		text-decoration: underline
 
+.container
+	margin: auto
+	max-width: $width-container
+	padding: 0 $font-line
+	position: relative
+
+	@media all and (min-width: $width-full)
+		padding: 0
+
 header
 	background: $grey-light
 	display: block
 	height: $size-header
-
-	.container
-		margin: auto
-		max-width: $width-container
-		padding: 0 $font-line
-		position: relative
-
-		@media all and (min-width: $width-full)
-			padding: 0
 
 	h1
 		display: block
@@ -95,7 +95,27 @@ header
 			top: $size-header
 			z-index: 3
 
-	body.shaded &
+.hero
+	background: $grey-light
+	padding: 0 0 $font-line 0
+
+	a
+		border: 2px solid $blue-dark
+		border-radius: 2px
+		display: inline-block
+		font-family: $font-family-header
+		font-weight: bold
+		margin-top: ($font-line / 2)
+		padding: ($font-line / 4) ($font-line / 2)
+		transition: all 0.25s
+
+		&:hover
+			text-decoration: none
+			background: $blue-dark
+			color: $white
+
+body.shaded
+	header
 		background-color: $black
 		height: auto
 
@@ -111,8 +131,10 @@ header
 		nav
 			display: block
 
-@media all and (min-width: $width-full)
-	body.shaded
+	.hero
+		padding-top: $font-line
+
+	@media all and (min-width: $width-full)
 		overflow: hidden
 
 		&:after
