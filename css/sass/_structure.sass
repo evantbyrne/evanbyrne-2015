@@ -114,11 +114,21 @@ header
 					color: $blue-dark
 
 	&.banner
-		background: $white url('banner.png')
+		background: $white url('banner.jpg')
 		background-position: center $size-header
 		background-repeat: no-repeat
-		background-size: cover
 		height: (300px + $size-header)
+
+		@media all and (min-width: 500px)
+			background-image: url('banner-500.jpg')
+
+		@media all and (min-width: 1480px)
+			background-image: url('banner-1480.jpg')
+			background-size: cover
+
+		.wrap
+			background: rgba(255, 255, 255, 0.35)
+			height: (300px + $size-header)
 
 	nav
 		display: none
@@ -144,30 +154,39 @@ header
 			z-index: 3
 
 .hero
-	background: $grey-light
-	padding: 0 0 $font-line 0
+	padding-top: 80px
+
+	div
+		font-weight: bold
 
 	a
-		border: 2px solid $blue-dark
+		border: 2px solid rgb(131, 147, 168)
 		border-radius: 2px
+		background: rgb(131, 147, 168)
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75)
+		color: $black
+		color: $white
 		display: inline-block
 		font-family: $font-family-header
 		font-weight: bold
 		margin-top: ($font-line / 2)
 		padding: ($font-line / 4) ($font-line / 2)
+		text-shadow: 0 -1px rgba(0, 0, 0, 0.25)
 		transition: all 0.25s
 
 		&:hover
-			text-decoration: none
-			background: $blue-dark
+			background: rgba(131, 147, 168, 0.5)
+			border-color: rgba(131, 147, 168, 0.25)
+			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5)
 			color: $white
+			text-decoration: none
 
 body.shaded
 	header
 		background-color: $black
 		height: auto
 
-		.container
+		.wrap, .container
 			background: $black
 
 		h1 > a
@@ -180,7 +199,7 @@ body.shaded
 			display: block
 
 	.hero
-		padding-top: $font-line
+		display: none
 
 	@media all and (min-width: $width-full)
 		overflow: hidden
